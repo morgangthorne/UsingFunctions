@@ -84,6 +84,7 @@ int main()
 double GetInfo(string text);
 void MakeTheChart(double s, double d);
 void DisplayLine(string text);
+bool GetRepeat();
 
 int main()
 {
@@ -96,10 +97,17 @@ int main()
         speed = GetInfo("What speed were you travelling at?");
 
         MakeTheChart(hours, speed);
+        repeat = GetRepeat();
     }
     return 0;
 }
 
+bool GetRepeat() {
+    bool repeat;
+    cout << "Do you want to compute again? Enter 1 for yes, 2 for no): ";
+    cin >> repeat;
+    return repeat;
+}
 
 double GetInfo(string text)
 {
@@ -119,8 +127,8 @@ double GetInfo(string text)
 void MakeTheChart(double h, double a)
 
 {
-    DisplayLine("Hours    Distance Travelled");
-    DisplayLine("---------------------------");
+    DisplayLine("Hours    Distance Travelled\n");
+    DisplayLine("---------------------------\n");
     double distance = 0;
     for (int hours = 1; hours <= h; hours++) {
         distance = hours + distance;
