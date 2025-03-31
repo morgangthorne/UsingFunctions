@@ -4,7 +4,7 @@ Programmer Name: Morgan Thorne
 Date: March 2025
 Requirements;
 Write a program that calculates distance with speed * time
-using the template
+using the template that uses a loop to show distance vehicle has traveled each hour
 */
 
 #include <iostream>
@@ -12,7 +12,7 @@ using the template
 #include <iomanip>
 using namespace std;
 
-
+/*
 void DisplayMessage(string text) {
     cout << text << endl;
 }
@@ -75,4 +75,60 @@ int main()
 
     }
     return 0;
+}
+*/
+
+
+
+
+double GetInfo(string text);
+void MakeTheChart(double s, double d);
+void DisplayLine(string text);
+
+int main()
+{
+    bool repeat = true;
+    while (repeat)
+    {
+        double speed;
+        double hours;
+        hours = GetInfo("How many hours were you driving");
+        speed = GetInfo("What speed were you travelling at?");
+
+        MakeTheChart(hours, speed);
+    }
+    return 0;
+}
+
+
+double GetInfo(string text)
+{
+    double value;
+    cout << text;
+    cin >> value;
+    while (value < 1)
+    {
+        cout << "Please enter a valid entry";
+        cout << text;
+        cin >> value;
+    }
+    return value;
+}
+
+
+void MakeTheChart(double h, double a)
+
+{
+    DisplayLine("Hours    Distance Travelled");
+    DisplayLine("---------------------------");
+    double distance = 0;
+    for (int hours = 1; hours <= h; hours++) {
+        distance = hours + distance;
+        string line = to_string(hours) + "\t" + to_string(hours * distance) + "\n";
+        DisplayLine(line);
+    }
+}
+
+void DisplayLine(string text) {
+    cout << text;
 }
