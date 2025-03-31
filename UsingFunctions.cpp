@@ -21,11 +21,13 @@ int GetAssignmentNumber() {
     return 1.0;
 }
 
-//Displays result of distance calculated by speed * time
+//Displays result of distance calculated by speed* time and
+//uses a loop to show the distance the vehicle has traveled each hour
 void DisplayResult(double speed, double time) {
+    cout << "Hours   Distance\n";
     for (int hour = 1; hour <= time; ++hour) {
         double distance = speed * hour;
-        cout << hour << distance << endl;
+        cout << hour << "       " << distance << endl;
     }
 }
 
@@ -59,10 +61,10 @@ int main()
         // calls to modules go here
         double speed = 0;
         double time = 0;
-        double calculatedistance = speed * time;
-        cout << "How many mph are you going: ";
+        
+        cout << "\nHow many mph are you going: ";
         cin >> speed;
-        cout << "How many hours have you been travelling: ";
+        cout << "\nHow many hours have you been travelling: ";
         cin >> time;
         
         ValidateEntry(speed, time);
